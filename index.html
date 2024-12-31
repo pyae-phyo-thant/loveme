@@ -57,7 +57,7 @@
         />
         <p class="btn1 fs-1" id="btnDo">
           Do you love me? <br />
-          Chan Theint Theint Thu
+          <span id="name"></span>
         </p>
         <p class="btn1 fs-1 d-none" id="btnI">I love you too</p>
         <img
@@ -83,6 +83,19 @@
     </div>
   </body>
   <script>
+    // Get the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the 'n' parameter
+    const name = urlParams.get("n");
+
+    // Set the name into the <span> element if it exists
+    if (name) {
+      document.getElementById("name").textContent = name;
+    } else {
+      document.getElementById("name").textContent = "Guest"; // Fallback if no name is provided
+    }
+
     const btnNo = document.getElementById("btnNo");
     const btnYes = document.getElementById("btnYes");
     const btnDo = document.getElementById("btnDo");
